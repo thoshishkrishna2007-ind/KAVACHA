@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    
+    --primary: #267A68;
+    --primary-dark: #20594B;
+    --primary-deep: #123B32;
+    --secondary-holographic: #63DCE8;
+    --secondary-pale: #DDF8F8;
+    --tertiary-gold: #C6A15B;
+    --border-hairline: #DCE7E3;
+    --canvas-ivory: #FAF8F1;
+    --canvas-mist: #E9F1F5;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--canvas-ivory);
+    color: #111e1a;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(99, 220, 232, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(38, 122, 104, 0.06) 0%, transparent 40%),
+      linear-gradient(to right, rgba(220, 231, 227, 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(220, 231, 227, 0.3) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom Utilities for KAVACHA Clinical Platform */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Frosted glass cards */
+.emerald-glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px -4px rgba(18, 59, 50, 0.06);
+}
+
+.emerald-glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.emerald-glass-card-hover:hover {
+  box-shadow: 0 12px 36px -6px rgba(18, 59, 50, 0.12), inset 0 1px 0 rgba(99, 220, 232, 0.4);
+  border-color: rgba(99, 220, 232, 0.5);
+}
+
+/* Modal dark holographic emerald */
+.emerald-holo-modal {
+  background: rgba(18, 59, 50, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(99, 220, 232, 0.4);
+  box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.45), 0 0 32px rgba(99, 220, 232, 0.15);
+}
+
+/* Prismatic top border line */
+.prism-line {
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(99, 220, 232, 0.8) 50%, transparent 100%);
+}
+
+.prism-line-gold {
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(198, 161, 91, 0.8) 50%, transparent 100%);
+}
+
+/* Pulse animation for active nodes */
+@keyframes optical-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 220, 232, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(99, 220, 232, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 220, 232, 0);
+  }
+}
+
+.optical-pulse {
+  animation: optical-pulse 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+@keyframes optical-pulse-critical {
+  0% {
+    box-shadow: 0 0 0 0 rgba(180, 35, 50, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(180, 35, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(180, 35, 50, 0);
+  }
+}
+
+.optical-pulse-critical {
+  animation: optical-pulse-critical 1.5s infinite;
+}
+
+/* Scrollbar customization for clinical density */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(220, 231, 227, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bec9c4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6f7975;
+}

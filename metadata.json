@@ -1,0 +1,6 @@
+{
+  "name": "Emerald Shield Precision",
+  "description": "Clinical-grade transition of care orchestration platform with holographic telemetry, multi-disciplinary verification gates, and structured SBAR handoffs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,203 @@
+---
+name: Emerald Shield Precision
+colors:
+  surface: '#eefdf6'
+  surface-dim: '#cfddd7'
+  surface-bright: '#eefdf6'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#e8f7f1'
+  surface-container: '#e2f1eb'
+  surface-container-high: '#ddece5'
+  surface-container-highest: '#d7e6e0'
+  on-surface: '#111e1a'
+  on-surface-variant: '#3f4945'
+  inverse-surface: '#26332f'
+  inverse-on-surface: '#e5f4ee'
+  outline: '#6f7975'
+  outline-variant: '#bec9c4'
+  surface-tint: '#0d6b59'
+  primary: '#006150'
+  on-primary: '#ffffff'
+  primary-container: '#267a68'
+  on-primary-container: '#b6ffea'
+  inverse-primary: '#86d5c0'
+  secondary: '#006971'
+  on-secondary: '#ffffff'
+  secondary-container: '#7af1fd'
+  on-secondary-container: '#006d76'
+  tertiary: '#6d5011'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#886828'
+  on-tertiary-container: '#ffeed5'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#a2f2dc'
+  primary-fixed-dim: '#86d5c0'
+  on-primary-fixed: '#00201a'
+  on-primary-fixed-variant: '#005143'
+  secondary-fixed: '#83f3ff'
+  secondary-fixed-dim: '#5ed7e3'
+  on-secondary-fixed: '#002022'
+  on-secondary-fixed-variant: '#004f55'
+  tertiary-fixed: '#ffdea5'
+  tertiary-fixed-dim: '#e9c178'
+  on-tertiary-fixed: '#271900'
+  on-tertiary-fixed-variant: '#5d4202'
+  background: '#eefdf6'
+  on-background: '#111e1a'
+  surface-variant: '#d7e6e0'
+typography:
+  headline-xl:
+    fontFamily: Manrope
+    fontSize: 48px
+    fontWeight: '700'
+    lineHeight: 56px
+    letterSpacing: -0.02em
+  headline-xl-mobile:
+    fontFamily: Manrope
+    fontSize: 32px
+    fontWeight: '700'
+    lineHeight: 40px
+    letterSpacing: -0.015em
+  headline-lg:
+    fontFamily: Manrope
+    fontSize: 32px
+    fontWeight: '600'
+    lineHeight: 40px
+    letterSpacing: -0.015em
+  headline-lg-mobile:
+    fontFamily: Manrope
+    fontSize: 26px
+    fontWeight: '600'
+    lineHeight: 34px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Manrope
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+    letterSpacing: -0.01em
+  headline-sm:
+    fontFamily: Manrope
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+  body-lg:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: '400'
+    lineHeight: 28px
+  body-md:
+    fontFamily: Inter
+    fontSize: 15px
+    fontWeight: '400'
+    lineHeight: 24px
+  body-sm:
+    fontFamily: Inter
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 20px
+  label-lg:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '600'
+    lineHeight: 20px
+    letterSpacing: 0.01em
+  label-md:
+    fontFamily: Inter
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  label-sm:
+    fontFamily: Inter
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 14px
+    letterSpacing: 0.04em
+rounded:
+  sm: 0.25rem
+  DEFAULT: 0.5rem
+  md: 0.75rem
+  lg: 1rem
+  xl: 1.5rem
+  full: 9999px
+spacing:
+  gutter: 1.5rem
+  gutter-mobile: 1rem
+  margin: 2.5rem
+  margin-mobile: 1rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2.5rem
+---
+
+## Brand & Style
+This design system embodies an advanced clinical-grade shield aesthetic: Emerald Glass married with Holographic Healthcare. It is crafted for healthcare practitioners, care coordinators, and clinical workflow managers navigating critical transitions of care. The interface projects unimpeachable clinical authority, protective certainty, and high-velocity digital precision.
+
+The visual direction merges refined frosted glassmorphism with subtle holographic edge-illumination. The sensory experience evokes cleanroom sterilization, optical lens clarity, and high-end instrument telemetry. Rather than heavy, decorative blur effects, surfaces use semi-transparent tiers, fine connected-node line work, restrained prismatic edge refractions, and surgical micro-interactions that reassure the user that every patient transition is securely held, verified, and shielded.
+
+## Colors
+The palette balances deep botanical emeralds with high-luminosity optical cyans, anchored on warm clinical foundations.
+
+- **Primary (`#267A68`)**: Anchors primary interactions, active navigational states, and clinical verification stamps. Deepened by Forest Green (`#20594B`) and Deep Emerald (`#123B32`) for foundational structural backgrounds, toolbars, and high-security states.
+- **Secondary (`#63DCE8`)**: The holographic dynamic accent. Used strictly for illuminated active nodes, live tracking conduits, telemetry pings, and optical focus borders. Softened by Pale Cyan (`#DDF8F8`) for selection fields and luminous glow underlays.
+- **Tertiary (`#C6A15B`)**: Antique Gold; deployed for critical guardianship badges, high-acuity milestones, and verified shield certification markers.
+- **Neutrals & Surfaces**: Backgrounds default to Warm Ivory (`#FAF8F1`) paired with Mist Blue (`#E9F1F5`) to prevent clinical sterile fatigue. Primary typography renders in Charcoal (`#26332F`), muted secondary labels in `#65746F`, and hair-thin structural boundaries in `#DCE7E3`.
+- **System Feedback**: Critical interventions utilize `#B42332`, warning states `#9A6500`, and resolved milestones `#247A56`.
+
+## Typography
+The typographic architecture pairs the geometric, authoritative structure of Manrope for titles and focal telemetry data with the ultra-legible utilitarian clarity of Inter for dense clinical documentation and tabular inputs.
+
+- **Hierarchical Discipline**: Primary screen headings and patient transition phases utilize Manrope (`headline-*`) with tightened letter-spacing for structural gravity.
+- **Clinical Legibility**: Inter powers continuous body copy and operational tags. Numerical readouts, dosages, timestamps, and stage gates leverage tabular figures to ensure alignment across clinical monitors.
+- **Case Rules**: High-urgency badges and structural metadata labels enforce uppercase styling via `label-sm` with explicit tracking (`+0.04em`) to ensure legibility across backlit glass cards.
+
+## Layout & Spacing
+The layout follows a responsive 12-column fluid grid system engineered for precision workflows, adapting to an 8-column layout on tablets and a single/dual-column stack on mobile viewports.
+
+- **Workflow Canvases**: Desktop views leverage fixed patient summary sidebars (320px) alongside fluid stage orchestration panels. Layout density accommodates simultaneous status views without vertical occlusion.
+- **Whitespace Cadence**: Generous section margins (`2.5rem`) frame compact, dense analytical data cards (`0.5rem` to `1rem` component internal spacing), balancing airy cognitive relief with intense task ergonomics.
+- **Node-Line Grid**: Connected transition pathways align directly with grid gutters, turning layout tracks into connective rails where care handoffs progress across visual gates.
+
+## Elevation & Depth
+Elevation is rendered through chromatic glass layering, low-refraction backdrops, and subtle holographic illumination rather than heavy drop shadows.
+
+- **Base Layer (Level 0)**: Warm Ivory canvas `#FAF8F1` or Mist Blue `#E9F1F5` containing hairline geometric layout guides (`#DCE7E3` at 40% opacity).
+- **Frosted Surfaces (Level 1)**: White glass cards (`rgba(255, 255, 255, 0.72)`) with a `16px` backdrop-filter blur, rimmed by a top-to-bottom directional hairline border (`rgba(255, 255, 255, 0.8)` transitioning to `#DCE7E3`). Ambient shadow is soft and tinted: `0 8px 32px -4px rgba(18, 59, 50, 0.06)`.
+- **Active / Hover State (Level 2)**: Elevated transition cards invoke an internal edge highlight (`inset 0 1px 0 rgba(99, 220, 232, 0.4)`) and an external diffusion shadow (`0 12px 36px -6px rgba(18, 59, 50, 0.12)`).
+- **Holographic Modal & Float (Level 3)**: Overlay dialogues and priority handoff drawers employ deep emerald backing (`rgba(18, 59, 50, 0.85)` with `24px` backdrop blur) trimmed with a faint holographic cyan border (`rgba(99, 220, 232, 0.35)`), creating an illuminated floating shield motif.
+
+## Shapes
+The visual vocabulary balances organic clinical warmth with calibrated shield geometry:
+
+- **Corner Radii**: Standard components, cards, and input modules carry an 8px (`0.5rem`) corner radius. Larger composite stage containers and floating modals step up to 16px (`1rem`). Micro badges, status pills, and transition handoff markers utilize full pill-geometry (`9999px`) to maintain tactile contrast against square-aligned data grids.
+- **Shield Contours**: Secondary decorative icons, transition verification stamps, and active care team badges adopt subtle chamfered shield profiles or hexagonal terminal nodes to reinforce systemic protection.
+
+## Components
+
+- **Buttons**:
+  - *Primary Shield*: Gradient fill from `#267A68` to `#20594B` with an inset top-lit edge highlight (`rgba(255, 255, 255, 0.2)`), crisp white text, and an ambient green glow on hover (`0 4px 16px rgba(38, 122, 104, 0.35)`).
+  - *Holographic Secondary*: Glass substrate (`rgba(255, 255, 255, 0.6)`) bounded by a 1px border of `#63DCE8`, text in `#123B32`. On hover, the surface shifts to `#DDF8F8` with a subtle cyan edge sheen.
+  - *Tertiary / Danger*: Ghost buttons with text-color states; critical actions use `#B42332` on a soft red wash (`rgba(180, 35, 50, 0.06)`).
+
+- **Input Fields & Form Controls**:
+  - *Text Fields*: Surface filled with semi-opaque white (`rgba(255, 255, 255, 0.85)`), 1px border in `#DCE7E3`. When active or focused, fields transition to a 1.5px `#267A68` outline complemented by an outer `0 0 0 3px rgba(99, 220, 232, 0.25)` holographic halo.
+  - *Checkboxes & Radios*: Custom 18px glyphs. Unselected: `#DCE7E3` ring with white glass center. Selected: `#267A68` filled container housing a sharp, crisp white verification check or dot.
+
+- **Chips & Status Tags**:
+  - Built with `9999px` pill contours.
+  - *In-Transit*: Soft `#DDF8F8` background with `#20594B` text, fronted by a pulsing 6px `#63DCE8` circular optical node.
+  - *Guarded / Protected*: Warm Ivory tinted with Antique Gold (`rgba(198, 161, 91, 0.15)`), `#9A6500` text, and a micro shield icon.
+  - *Critical Action*: Red-tinted glass (`rgba(180, 35, 50, 0.1)`) with `#B42332` typography.
+
+- **Cards & Surface Containers**:
+  - Structural cards utilize frosted glass (`rgba(255, 255, 255, 0.72)`) with integrated hairline border headers dividing patient telemetry from clinical timelines.
+  - Section headers contain an optional subtle top-edge prism refraction line (`1px height gradient: transparent -> #63DCE8 -> transparent`).
+
+- **Transition Workflow Conduits (Custom Component)**:
+  - Linear and stepped patient handoff trackers featuring glowing 12px circular state nodes linked by 2px hairline rails. Complete stages shine solid emerald (`#247A56`); active stages pulse with concentric `#63DCE8` rings; pending stages rest in neutral `#DCE7E3`.

@@ -1,0 +1,1526 @@
+{
+  "users": [
+    {
+      "id": "usr-nurse-1",
+      "name": "Sarah Jensen, BSN, RN, CCRN",
+      "email": "sarah.jensen@emeraldshield.health",
+      "role": "nurse",
+      "title": "Primary Intensive Care Nurse",
+      "department": "Cardiovascular ICU",
+      "badgeNumber": "RN-9842"
+    },
+    {
+      "id": "usr-phys-1",
+      "name": "Dr. Katherine Miller, MD, FACS",
+      "email": "katherine.miller@emeraldshield.health",
+      "role": "physician",
+      "title": "Attending Cardiothoracic Surgeon",
+      "department": "Surgical Services",
+      "badgeNumber": "MD-4109"
+    },
+    {
+      "id": "usr-pharm-1",
+      "name": "R. Gupta, PharmD, BCPS",
+      "email": "r.gupta@emeraldshield.health",
+      "role": "pharmacist",
+      "title": "Lead Critical Care Clinical Pharmacist",
+      "department": "Clinical Pharmacy",
+      "badgeNumber": "PH-7714"
+    },
+    {
+      "id": "usr-trans-1",
+      "name": "Marcus Bell, CCT-P",
+      "email": "marcus.bell@emeraldshield.health",
+      "role": "transport",
+      "title": "Critical Care Transport Specialist",
+      "department": "Emergency & Patient Transit",
+      "badgeNumber": "TR-3390"
+    },
+    {
+      "id": "usr-rec-1",
+      "name": "Brenda Hayes, BSN, RN, PCCN",
+      "email": "brenda.hayes@emeraldshield.health",
+      "role": "receiving_nurse",
+      "title": "Step-Down Telemetry Charge Nurse",
+      "department": "4-West Telemetry",
+      "badgeNumber": "RN-4411"
+    },
+    {
+      "id": "usr-admin-1",
+      "name": "Dr. Arthur Sterling, MD, MBA",
+      "email": "arthur.sterling@emeraldshield.health",
+      "role": "admin",
+      "title": "Chief Medical Quality Officer & System Administrator",
+      "department": "Clinical Operations & Quality",
+      "badgeNumber": "ADM-001"
+    }
+  ],
+  "patients": [
+    {
+      "id": "tr-0941",
+      "patientId": "PT-88319",
+      "patientName": "Eleanor Vance",
+      "mrn": "MRN-7419-02",
+      "age": 68,
+      "gender": "F",
+      "admissionDate": "2026-10-20",
+      "diagnosis": "Post-CABG x3 (Day 4) · Weaned from Vasopressors · Stable Post-Extubation",
+      "sourceUnit": "Cardiovascular ICU (Pod C, Bed 04)",
+      "targetUnit": "Step-Down Telemetry (4-West, Bed 12)",
+      "targetBed": "4W-12 (Telemetry Capable)",
+      "acuity": "guarded",
+      "shieldScore": 98.4,
+      "currentStageId": 3,
+      "telemetry": {
+        "heartRate": 74,
+        "bloodPressure": "118/72",
+        "spo2": 97,
+        "respiratoryRate": 16,
+        "meanArterialPressure": 87,
+        "cardiacRhythm": "Normal Sinus Rhythm · Trace PVCs",
+        "temperature": 36.9,
+        "lastUpdated": "1 min ago"
+      },
+      "allergies": [
+        "Penicillin (Anaphylaxis)",
+        "Sulfa Drugs (Rash)"
+      ],
+      "codeStatus": "FULL CODE",
+      "fallRisk": "High",
+      "isolationType": "None",
+      "estimatedHandoffDuration": "35 min",
+      "assignedCoordinator": "Sarah Jensen, BSN, CCRN",
+      "lastAuditNote": "Cardiac enzymes stable; Chest tube output < 25ml in last 8 hours; SBAR transmitted to receiving charge nurse.",
+      "medications": [
+        {
+          "id": "med-1",
+          "name": "Metoprolol Tartrate",
+          "dose": "25 mg",
+          "route": "Oral",
+          "frequency": "BID (Every 12 hrs)",
+          "category": "cardiac",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD R. Gupta",
+          "notes": "Hold if SBP < 100 or HR < 55 bpm"
+        },
+        {
+          "id": "med-2",
+          "name": "Aspirin (Enteric Coated)",
+          "dose": "81 mg",
+          "route": "Oral",
+          "frequency": "Daily",
+          "category": "cardiac",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD R. Gupta"
+        },
+        {
+          "id": "med-3",
+          "name": "Apixaban (Eliquis)",
+          "dose": "5 mg",
+          "route": "Oral",
+          "frequency": "BID",
+          "category": "anticoagulant",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD R. Gupta",
+          "notes": "Post-op Day 4 initiation"
+        },
+        {
+          "id": "med-4",
+          "name": "Milrinone Continuous Infusion",
+          "dose": "0.25 mcg/kg/min",
+          "route": "IV Central Line",
+          "frequency": "Titrated off",
+          "category": "infusion",
+          "reconciliationStatus": "discontinued",
+          "verifiedBy": "Dr. Katherine Miller (Attending)",
+          "notes": "Successfully weaned off at 06:00 today"
+        },
+        {
+          "id": "med-5",
+          "name": "Acetaminophen",
+          "dose": "650 mg",
+          "route": "Oral",
+          "frequency": "Q6H PRN for Sternotomy Pain (1-4)",
+          "category": "analgesic",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD R. Gupta"
+        }
+      ],
+      "stages": [
+        {
+          "id": 1,
+          "name": "Clinical Readiness & Telemetry Stability",
+          "shortLabel": "Readiness",
+          "description": "Hemodynamic verification, extubation tolerance, arterial line discontinuation check.",
+          "leadDiscipline": "Intensive Care Team",
+          "status": "completed",
+          "verifiedAt": "06:45 AM",
+          "verifiedBy": "Dr. Katherine Miller, MD",
+          "checklists": [
+            {
+              "id": "c-101",
+              "label": "Extubation criteria met > 24h with SpO2 ≥ 95% on nasal cannula 2L",
+              "discipline": "Nursing",
+              "completed": true,
+              "completedBy": "RN S. Jensen",
+              "timestamp": "06:15 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-102",
+              "label": "Inotropic/vasopressor support discontinued for > 4 consecutive hours",
+              "discipline": "Physician",
+              "completed": true,
+              "completedBy": "Dr. K. Miller",
+              "timestamp": "06:20 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-103",
+              "label": "Morning post-op CBC, BMP, Coagulation panel verified within target parameters",
+              "discipline": "Physician",
+              "completed": true,
+              "completedBy": "Dr. K. Miller",
+              "timestamp": "06:40 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-104",
+              "label": "Surgical site sternal incision stable, dry and intact without drainage",
+              "discipline": "Nursing",
+              "completed": true,
+              "completedBy": "RN S. Jensen",
+              "timestamp": "06:30 AM",
+              "requiredForAdvance": false
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Medication Reconciliation & High-Alert Signoff",
+          "shortLabel": "Pharm Shield",
+          "description": "Post-ICU transition medication review, anti-platelet regimen, antibiotic cessation.",
+          "leadDiscipline": "Clinical Pharmacy",
+          "status": "completed",
+          "verifiedAt": "07:15 AM",
+          "verifiedBy": "R. Gupta, PharmD, BCPS",
+          "checklists": [
+            {
+              "id": "c-201",
+              "label": "Central line infusion discontinuation verified and double-checked in EHR",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "completedBy": "PharmD R. Gupta",
+              "timestamp": "07:05 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-202",
+              "label": "Oral anti-arrhythmic & beta-blocker step-down protocol scheduled",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "completedBy": "PharmD R. Gupta",
+              "timestamp": "07:10 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-203",
+              "label": "Controlled substance waste & narcotic reconciliation sealed",
+              "discipline": "Nursing",
+              "completed": true,
+              "completedBy": "RN S. Jensen & RN M. Diaz",
+              "timestamp": "07:12 AM",
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Receiving Handshake & Nurse-to-Nurse SBAR",
+          "shortLabel": "SBAR Handshake",
+          "description": "Synchronous nurse-to-nurse verbal handoff, telemetry channel pairing, bed confirmation.",
+          "leadDiscipline": "Nursing Care Coordination",
+          "status": "active",
+          "targetCompletionTime": "08:15 AM",
+          "checklists": [
+            {
+              "id": "c-301",
+              "label": "Receiving step-down unit bed 4W-12 verified clean, prepped, and telemetry channel 04-A locked",
+              "discipline": "Nursing",
+              "completed": true,
+              "completedBy": "RN Brenda Hayes (4-West Charge)",
+              "timestamp": "07:35 AM",
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-302",
+              "label": "SBAR verbal report completed between sending ICU RN and receiving telemetry RN",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true,
+              "notes": "Awaiting receiving primary RN at 4-West shift huddle"
+            },
+            {
+              "id": "c-303",
+              "label": "Care plan goals, mobilization tolerance, and sternal precautions shared with family/caregiver",
+              "discipline": "Case Management",
+              "completed": true,
+              "completedBy": "CM Linda Wu, MSW",
+              "timestamp": "07:40 AM",
+              "requiredForAdvance": false
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Transport Safeguard & Escort Logistics",
+          "shortLabel": "Transport",
+          "description": "Portable telemetry bridge, supplemental O2 tank, bedside escort clearance.",
+          "leadDiscipline": "Patient Transport",
+          "status": "pending",
+          "targetCompletionTime": "08:45 AM",
+          "checklists": [
+            {
+              "id": "c-401",
+              "label": "Portable wireless telemetry monitor transmitter active and paired to central console",
+              "discipline": "Transport",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-402",
+              "label": "E-cylinder oxygen tank full (pressure > 1800 PSI) with nasal cannula ready",
+              "discipline": "Transport",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-403",
+              "label": "Registered Nurse transport escort assigned for guarded telemetry handoff",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Receiving Ingestion & Verification Seal",
+          "shortLabel": "Shield Locked",
+          "description": "Physical arrival vital check, bed telemetry sync, mutual signoff seal.",
+          "leadDiscipline": "Receiving Clinical Unit",
+          "status": "pending",
+          "targetCompletionTime": "09:00 AM",
+          "checklists": [
+            {
+              "id": "c-501",
+              "label": "Arrival telemetry waveform validated and matched to baseline rhythm",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-502",
+              "label": "Mutual physical assessment and skin integrity inspection signed off by both nurses",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "c-503",
+              "label": "Transition of Care Shield certification cryptographically sealed and logged in audit rail",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        }
+      ],
+      "sbar": {
+        "situation": "68-year-old female status-post urgent 3-vessel CABG on 10/20, successfully extubated yesterday, weaned off inotropes, now clinically ready for transfer to 4-West Step-Down Telemetry.",
+        "background": "Past medical history includes CAD, hypertension, hyperlipidemia, and Type 2 diabetes. Underwent LIMA to LAD, SVG to OM1 and RCA. Chest tubes removed POD 3, epicardial pacing wires coiled and secured.",
+        "assessment": "Vitals stable. Alert and oriented x4. NSR with occasional benign PVCs on telemetry. Lungs clear bilaterally on 2L NC. Sternal incision clean, sternum mechanically stable with sternal guard vest in place. Pain controlled at 2/10.",
+        "recommendation": "Continuous cardiac telemetry monitoring on 4-West. Keep SBP between 100-130 mmHg. Daily standing weight, strict I&O. PT ambulation with sternal precautions twice daily. Follow up repeat morning troponin and potassium at 06:00.",
+        "sendingNurse": "Sarah Jensen, BSN, RN, CCRN (Badge #9842)",
+        "receivingNurse": "Brenda Hayes, BSN, RN, PCCN (Badge #4411)",
+        "attendingPhysician": "Katherine Miller, MD, FACS"
+      },
+      "transport": {
+        "mode": "Stretcher",
+        "escortRequired": true,
+        "escortTeam": "CCRN Escort + Dedicated Porter",
+        "equipment": [
+          "Wireless Telemetry Pack",
+          "Portable O2 (2L)",
+          "Emergency Med Bag",
+          "IV Pole"
+        ],
+        "scheduledTime": "08:45 AM",
+        "etaMinutes": 28,
+        "transportStatus": "Scheduled"
+      }
+    },
+    {
+      "id": "tr-0942",
+      "patientId": "PT-99204",
+      "patientName": "Marcus Chen",
+      "mrn": "MRN-8201-94",
+      "age": 52,
+      "gender": "M",
+      "admissionDate": "2026-10-18",
+      "diagnosis": "Traumatic Brain Injury · Subarachnoid Hemorrhage · Resolving Cerebral Edema",
+      "sourceUnit": "Neuro Trauma ICU (Bed 02)",
+      "targetUnit": "Inpatient Neuro Rehabilitation (5-East, Bed 08)",
+      "targetBed": "5E-08 (Low Fall Bed)",
+      "acuity": "guarded",
+      "shieldScore": 94.2,
+      "currentStageId": 4,
+      "telemetry": {
+        "heartRate": 68,
+        "bloodPressure": "128/82",
+        "spo2": 99,
+        "respiratoryRate": 14,
+        "meanArterialPressure": 92,
+        "cardiacRhythm": "Sinus Rhythm",
+        "temperature": 37,
+        "lastUpdated": "3 min ago"
+      },
+      "allergies": [
+        "No Known Drug Allergies (NKDA)"
+      ],
+      "codeStatus": "FULL CODE",
+      "fallRisk": "High",
+      "isolationType": "None",
+      "estimatedHandoffDuration": "45 min",
+      "assignedCoordinator": "David Kalu, MSN, APRN",
+      "lastAuditNote": "GCS 14 (E4 V4 M6). Swallow study cleared for pureed diet with thin liquids. Inter-facility transport crew dispatched.",
+      "medications": [
+        {
+          "id": "med-21",
+          "name": "Levetiracetam (Keppra)",
+          "dose": "1000 mg",
+          "route": "Oral",
+          "frequency": "BID",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD T. Nguyen",
+          "notes": "Seizure prophylaxis"
+        },
+        {
+          "id": "med-22",
+          "name": "Nimodipine",
+          "dose": "60 mg",
+          "route": "Oral",
+          "frequency": "Q4H",
+          "category": "cardiac",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD T. Nguyen",
+          "notes": "Hold for SBP < 100"
+        },
+        {
+          "id": "med-23",
+          "name": "Docusate Sodium",
+          "dose": "100 mg",
+          "route": "Oral",
+          "frequency": "Daily",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD T. Nguyen"
+        }
+      ],
+      "stages": [
+        {
+          "id": 1,
+          "name": "Clinical Readiness & Neuro Stability",
+          "shortLabel": "Readiness",
+          "description": "ICP monitoring cleared, intracranial bleed stable on CT, GCS sustained.",
+          "leadDiscipline": "Neuro-Intensive Care",
+          "status": "completed",
+          "verifiedAt": "05:30 AM",
+          "verifiedBy": "Dr. Aaron Patel, MD",
+          "checklists": [
+            {
+              "id": "mc-1",
+              "label": "EVD (external ventricular drain) clamped x 24h and successfully removed",
+              "discipline": "Physician",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-2",
+              "label": "Follow-up head CT demonstrates stable reabsorption of SAH without midline shift",
+              "discipline": "Physician",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-3",
+              "label": "Neurological exam baseline documented: GCS 14 (mild word-finding hesitancy)",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Medication Reconciliation & Neuro Protective Regimen",
+          "shortLabel": "Pharm Shield",
+          "description": "Nimodipine and anti-epileptic therapy transition.",
+          "leadDiscipline": "Clinical Pharmacy",
+          "status": "completed",
+          "verifiedAt": "06:15 AM",
+          "verifiedBy": "T. Nguyen, PharmD",
+          "checklists": [
+            {
+              "id": "mc-4",
+              "label": "Nimodipine Q4H schedule aligned to rehab therapy schedule",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-5",
+              "label": "Keppra level confirmed therapeutic",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Receiving Handshake & Rehab SBAR",
+          "shortLabel": "SBAR Handshake",
+          "description": "Physiatry, PT/OT handoff, and cognitive baseline transfer.",
+          "leadDiscipline": "Nursing & Rehab",
+          "status": "completed",
+          "verifiedAt": "07:20 AM",
+          "verifiedBy": "RN D. Kalu & RN G. Simmons",
+          "checklists": [
+            {
+              "id": "mc-6",
+              "label": "Speech-Language Pathology bedside swallow assessment verified safe for mechanical soft",
+              "discipline": "Physical Therapy",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-7",
+              "label": "Inpatient rehab bed 5E-08 ready with bed alarm and floor fall mat",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Transport Safeguard & Escort Logistics",
+          "shortLabel": "Transport",
+          "description": "Wheelchair / Gurney transfer with helmet protection protocol.",
+          "leadDiscipline": "Patient Transport",
+          "status": "active",
+          "targetCompletionTime": "08:00 AM",
+          "checklists": [
+            {
+              "id": "mc-8",
+              "label": "Protective cranial orthosis helmet fitted for transport",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-9",
+              "label": "Internal transport staff arrived at bedside with wheelchair",
+              "discipline": "Transport",
+              "completed": false,
+              "requiredForAdvance": true,
+              "notes": "Escort van en route from Building B"
+            },
+            {
+              "id": "mc-10",
+              "label": "Personal items and patient identification band verified",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": false
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Receiving Ingestion & Verification Seal",
+          "shortLabel": "Shield Locked",
+          "description": "Arrival GCS confirmation, cognitive handoff verification.",
+          "leadDiscipline": "Receiving Clinical Unit",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "mc-11",
+              "label": "Intake neurological check matches pre-transport baseline",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "mc-12",
+              "label": "Rehab care team orientation completed",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        }
+      ],
+      "sbar": {
+        "situation": "52-year-old male with traumatic brain injury and subarachnoid hemorrhage following cycling accident on 10/18, transfer to Inpatient Neuro Rehab for intensive physical, occupational, and cognitive therapies.",
+        "background": "Non-surgical conservative management of SAH. Clamped EVD pulled yesterday. No seizures. Independent prior to accident.",
+        "assessment": "GCS 14. Mild expressive dysphasia. Cranial nerves intact. Motor strength 5/5 on right, 4+/5 on left. Ambulates 50 feet with steadying assist of 1. High fall risk due to impulsivity.",
+        "recommendation": "Inpatient rehab 3 hrs daily. Bed alarm active at all times. Nimodipine through Day 21 (11/08). Speech therapy pureed diet protocol.",
+        "sendingNurse": "David Kalu, MSN, APRN (Badge #8122)",
+        "receivingNurse": "Grace Simmons, BSN, RN, CRRN (Badge #3901)",
+        "attendingPhysician": "Aaron Patel, MD, Neuro-Intensivist"
+      },
+      "transport": {
+        "mode": "Wheelchair",
+        "escortRequired": true,
+        "escortTeam": "Dedicated Rehab Escort",
+        "equipment": [
+          "Cranial Protective Helmet",
+          "Gait Belt",
+          "Chart Binder"
+        ],
+        "scheduledTime": "08:05 AM",
+        "etaMinutes": 12,
+        "transportStatus": "Crew En Route"
+      }
+    },
+    {
+      "id": "tr-0943",
+      "patientId": "PT-66120",
+      "patientName": "Amara Okafor",
+      "mrn": "MRN-3309-17",
+      "age": 34,
+      "gender": "F",
+      "admissionDate": "2026-10-23",
+      "diagnosis": "Severe Preeclampsia at 33w4d · Elevated Transaminases · Continuous Fetal Telemetry",
+      "sourceUnit": "High-Risk Antepartum (Room 204)",
+      "targetUnit": "Labor & Delivery OR Suite 3 (Immediate Transfer)",
+      "targetBed": "L&D Suite 03",
+      "acuity": "critical",
+      "shieldScore": 86.4,
+      "currentStageId": 2,
+      "telemetry": {
+        "heartRate": 88,
+        "bloodPressure": "158/104",
+        "spo2": 98,
+        "respiratoryRate": 18,
+        "meanArterialPressure": 114,
+        "cardiacRhythm": "Sinus Tachycardia",
+        "temperature": 37.2,
+        "lastUpdated": "Just now"
+      },
+      "allergies": [
+        "Latex (Local Contact Dermatitis)"
+      ],
+      "codeStatus": "FULL CODE",
+      "fallRisk": "High",
+      "isolationType": "None",
+      "estimatedHandoffDuration": "15 min (Priority)",
+      "assignedCoordinator": "Rachel Goldberg, RNC-OB",
+      "lastAuditNote": "SIMULATION B (BLOCKER): Stage 02 halted. Missing clinical pharmacist double-check on high-alert antihypertensive.",
+      "medications": [
+        {
+          "id": "med-31",
+          "name": "Magnesium Sulfate IV Infusion",
+          "dose": "2 g/hr",
+          "route": "IV Continuous (Dual Verification)",
+          "frequency": "Continuous",
+          "category": "infusion",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD J. Morales & RN R. Goldberg",
+          "notes": "Eclampsia seizure prophylaxis · Check DTRs Q1H"
+        },
+        {
+          "id": "med-32",
+          "name": "Labetalol IV Push",
+          "dose": "20 mg",
+          "route": "IV Push over 2 min",
+          "frequency": "PRN for SBP > 160 or DBP > 110",
+          "category": "cardiac",
+          "reconciliationStatus": "pending",
+          "verifiedBy": "Dr. Claire Laurent",
+          "notes": "Given 35 min ago at 07:05 AM"
+        },
+        {
+          "id": "med-33",
+          "name": "Betamethasone",
+          "dose": "12 mg",
+          "route": "Intramuscular",
+          "frequency": "Dose 2 complete",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD J. Morales"
+        }
+      ],
+      "stages": [
+        {
+          "id": 1,
+          "name": "Clinical Readiness & Maternal-Fetal Telemetry",
+          "shortLabel": "Readiness",
+          "description": "Maternal hemodynamic stability, continuous tocodynamometry, emergency labs.",
+          "leadDiscipline": "Maternal-Fetal Medicine",
+          "status": "completed",
+          "verifiedAt": "07:10 AM",
+          "verifiedBy": "Dr. Claire Laurent, MD",
+          "checklists": [
+            {
+              "id": "ao-1",
+              "label": "Magnesium sulfate IV bolus 4g completed and maintenance running on dedicated Alaris pump",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "ao-2",
+              "label": "Continuous fetal heart tracing Category 1-2 verified by OB attending",
+              "discipline": "Physician",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "ao-3",
+              "label": "STAT HELLP lab panel (CBC, CMP, LDH, Uric Acid) reviewed",
+              "discipline": "Physician",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Medication Reconciliation & High-Alert Signoff",
+          "shortLabel": "Pharm Shield",
+          "description": "Dual-nurse verification of high-risk infusions and antihypertensives.",
+          "leadDiscipline": "Clinical Pharmacy & Nursing",
+          "status": "active",
+          "targetCompletionTime": "07:45 AM",
+          "checklists": [
+            {
+              "id": "ao-4",
+              "label": "Magnesium toxicity antidote Calcium Gluconate at bedside with patient",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "ao-5",
+              "label": "Blood bank cross-match confirmed: 2 units PRBCs on active cross-match hold",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true,
+              "notes": "Type & Screen verified; unit release in progress"
+            },
+            {
+              "id": "ao-6",
+              "label": "Deep tendon reflexes and respiratory rate assessed prior to roll",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Receiving Handshake & OR Suite Handover",
+          "shortLabel": "SBAR Handshake",
+          "description": "Surgical and neonatal resuscitation team huddle.",
+          "leadDiscipline": "L&D Surgical Team",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "ao-7",
+              "label": "L&D OR Suite 3 ready, pre-warmed, anesthesia attending present",
+              "discipline": "Physician",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "ao-8",
+              "label": "NICU resuscitation team briefed with gestation age 33w4d",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Transport Safeguard & Escort Logistics",
+          "shortLabel": "Transport",
+          "description": "Urgent bed transport with continuous fetal monitor.",
+          "leadDiscipline": "OB Transport Team",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "ao-9",
+              "label": "Dedicated OB nurse and anesthesia resident bedside escort",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "ao-10",
+              "label": "Telemetry uninterrupted during elevator transfer",
+              "discipline": "Transport",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Receiving Ingestion & Verification Seal",
+          "shortLabel": "Shield Locked",
+          "description": "OR table transition, surgical safety pause, shield lock.",
+          "leadDiscipline": "Receiving Surgical Unit",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "ao-11",
+              "label": "Mutual time-out protocol executed in OR Suite 3",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        }
+      ],
+      "sbar": {
+        "situation": "34-year-old G2P1 at 33w4d with severe preeclampsia, intractable severe-range blood pressures up to 164/108, transferring urgently to L&D OR 3 for urgent evaluation and likely cesarean delivery.",
+        "background": "Antepartum admission 3 days ago for gestational hypertension. Platelets dropping (currently 114k), AST/ALT elevated at 88/92. Received 2 doses Betamethasone for fetal lung maturity.",
+        "assessment": "Maternal BP 158/104. Fetal heart rate baseline 145 with moderate variability. Deep tendon reflexes +3 with 1 beat clonus. Headache mild, no visual disturbances reported right now.",
+        "recommendation": "Immediate transport to L&D OR 3. Maintain Magnesium infusion 2g/hr with Calcium Gluconate accompanying. NICU resuscitation team notified and standing by. Anesthesia consultation ready at arrival.",
+        "sendingNurse": "Rachel Goldberg, RNC-OB (Badge #2104)",
+        "receivingNurse": "Megan St. Clair, BSN, RN, CNOR (Badge #7702)",
+        "attendingPhysician": "Claire Laurent, MD, FACOG"
+      },
+      "transport": {
+        "mode": "Stretcher",
+        "escortRequired": true,
+        "escortTeam": "Primary OB RN + Anesthesia Fellow",
+        "equipment": [
+          "Wireless Maternal/Fetal Telemetry",
+          "Magnesium Infusion Pump",
+          "Emergency Med Tackle Box",
+          "O2 Bag-Valve-Mask"
+        ],
+        "scheduledTime": "07:45 AM",
+        "etaMinutes": 5,
+        "transportStatus": "At Bedside"
+      }
+    },
+    {
+      "id": "tr-0944",
+      "patientId": "PT-44812",
+      "patientName": "Donald Reyes",
+      "mrn": "MRN-5510-82",
+      "age": 74,
+      "gender": "M",
+      "admissionDate": "2026-10-17",
+      "diagnosis": "Community-Acquired Pneumonia (Resolved) · COPD Exacerbation · Deconditioning",
+      "sourceUnit": "Inpatient Med-Surg (3-South, Bed 18)",
+      "targetUnit": "Pinecrest Post-Acute Care & Rehabilitation",
+      "targetBed": "Room 104-B (Sub-Acute)",
+      "acuity": "discharge-ready",
+      "shieldScore": 100,
+      "currentStageId": 5,
+      "telemetry": {
+        "heartRate": 72,
+        "bloodPressure": "122/76",
+        "spo2": 96,
+        "respiratoryRate": 15,
+        "meanArterialPressure": 88,
+        "cardiacRhythm": "Normal Sinus Rhythm",
+        "temperature": 36.8,
+        "lastUpdated": "8 min ago"
+      },
+      "allergies": [
+        "Ciprofloxacin (Tendonitis)"
+      ],
+      "codeStatus": "DNR/DNI",
+      "fallRisk": "Moderate",
+      "isolationType": "None",
+      "estimatedHandoffDuration": "20 min",
+      "assignedCoordinator": "Patricia Alvarez, LCSW, CCM",
+      "lastAuditNote": "ALL CLEAR: BLS transport ambulance at curbside. Discharge summary, medication teach-back completed, SNF liaison confirmed room ready.",
+      "medications": [
+        {
+          "id": "med-41",
+          "name": "Tiotropium (Spiriva Respimat)",
+          "dose": "2.5 mcg (2 puffs)",
+          "route": "Inhalation",
+          "frequency": "Daily",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD K. Patel"
+        },
+        {
+          "id": "med-42",
+          "name": "Albuterol Inhaler",
+          "dose": "90 mcg (2 puffs)",
+          "route": "Inhalation",
+          "frequency": "Q4H PRN shortness of breath",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD K. Patel"
+        },
+        {
+          "id": "med-43",
+          "name": "Prednisone Taper",
+          "dose": "10 mg",
+          "route": "Oral",
+          "frequency": "Daily for 3 days then stop",
+          "category": "maintenance",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD K. Patel"
+        }
+      ],
+      "stages": [
+        {
+          "id": 1,
+          "name": "Clinical Readiness & Discharge Stability",
+          "shortLabel": "Readiness",
+          "description": "Afebrile > 48h, room air SpO2 > 94%, oral antibiotic course completed.",
+          "leadDiscipline": "Hospitalist Medicine",
+          "status": "completed",
+          "verifiedAt": "Yesterday 17:00",
+          "verifiedBy": "Dr. Jason Vance, MD",
+          "checklists": [
+            {
+              "id": "dr-1",
+              "label": "Vitals stable on room air for 36 consecutive hours",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "dr-2",
+              "label": "Physical therapy eval recommends 2-3 weeks sub-acute rehabilitation",
+              "discipline": "Physical Therapy",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Medication Reconciliation & SNF Transmission",
+          "shortLabel": "Pharm Shield",
+          "description": "Electronic transmission of discharge orders to Pinecrest SNF pharmacy.",
+          "leadDiscipline": "Pharmacy & Care Management",
+          "status": "completed",
+          "verifiedAt": "06:00 AM",
+          "verifiedBy": "PharmD K. Patel",
+          "checklists": [
+            {
+              "id": "dr-3",
+              "label": "Medication list reconciled and faxed/electronically transmitted to SNF intake",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "dr-4",
+              "label": "Patient and daughter completed inhaler spacer teach-back",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Receiving Handshake & SNF Intake SBAR",
+          "shortLabel": "SBAR Handshake",
+          "description": "Nurse-to-Nurse intake review with Pinecrest Director of Nursing.",
+          "leadDiscipline": "Case Management",
+          "status": "completed",
+          "verifiedAt": "06:45 AM",
+          "verifiedBy": "CM P. Alvarez & DON S. Green",
+          "checklists": [
+            {
+              "id": "dr-5",
+              "label": "SNF bed 104-B confirmed available with low-bed fall safeguards",
+              "discipline": "Case Management",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "dr-6",
+              "label": "DNR/DNI POLST form signed and original gold sheet placed in transport envelope",
+              "discipline": "Case Management",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Transport Safeguard & Escort Logistics",
+          "shortLabel": "Transport",
+          "description": "BLS Medical Transport arrival and transfer to ambulance gurney.",
+          "leadDiscipline": "Transport",
+          "status": "completed",
+          "verifiedAt": "07:30 AM",
+          "verifiedBy": "Metro-West EMS Crew #14",
+          "checklists": [
+            {
+              "id": "dr-7",
+              "label": "BLS crew verified patient ID band, belongings inventory sheet signed",
+              "discipline": "Transport",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "dr-8",
+              "label": "Patient safely transferred to transport gurney with dual seat belts",
+              "discipline": "Transport",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Receiving Ingestion & Verification Seal",
+          "shortLabel": "Shield Locked",
+          "description": "Mutual digital attestation and handover completion.",
+          "leadDiscipline": "Hospital & SNF Liaisons",
+          "status": "active",
+          "targetCompletionTime": "08:15 AM",
+          "checklists": [
+            {
+              "id": "dr-9",
+              "label": "Ambulance departed hospital transit bay at 07:42 AM",
+              "discipline": "Transport",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "dr-10",
+              "label": "Final Care Transition Shield certification seal verified",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true,
+              "notes": "Awaiting Pinecrest intake nurse phone check-in"
+            }
+          ]
+        }
+      ],
+      "sbar": {
+        "situation": "74-year-old male recovering from severe community-acquired right lower lobe pneumonia and COPD flare, transferring via BLS ambulance to Pinecrest Post-Acute Care for rehabilitation.",
+        "background": "History of severe COPD on home Spiriva, hypertension, osteoarthritis. Admitted on 10/17 with fever, productive cough, and hypoxia. Completed 5-day IV Rocephin and Azithromycin.",
+        "assessment": "Vitals stable. Alert and oriented x3. Bilateral expiratory wheezes, improved from admission. SpO2 96% on room air at rest, drops to 92% with 100ft ambulation. Independent with rolling walker.",
+        "recommendation": "Continue PT/OT rehabilitation 5x weekly. Sub-acute stay anticipated 14-21 days. Follow up with outpatient pulmonologist in 3 weeks. Full DNR/DNI documented on POLST.",
+        "sendingNurse": "Patricia Alvarez, RN, CCM (Badge #1109)",
+        "receivingNurse": "Sandra Green, RN, DON (Pinecrest Care)",
+        "attendingPhysician": "Jason Vance, MD"
+      },
+      "transport": {
+        "mode": "BLS Ambulance",
+        "escortRequired": false,
+        "escortTeam": "Metro-West Medical Transport EMS #14",
+        "equipment": [
+          "Transfer Wheelchair",
+          "Portable O2 tank",
+          "Sealed Records Envelope"
+        ],
+        "scheduledTime": "07:30 AM",
+        "etaMinutes": 0,
+        "transportStatus": "In Transit"
+      }
+    },
+    {
+      "id": "tr-0945",
+      "patientId": "PT-31088",
+      "patientName": "Sofia Lindqvist",
+      "mrn": "MRN-1904-58",
+      "age": 41,
+      "gender": "F",
+      "admissionDate": "2026-10-24",
+      "diagnosis": "Acute Anterior STEMI · ST Elevation in V1-V4 · Door-to-Balloon Priority",
+      "sourceUnit": "Emergency Resuscitation Bay 1",
+      "targetUnit": "Cardiac Catheterization Lab Suite 2",
+      "targetBed": "Cath Lab Table 2",
+      "acuity": "critical",
+      "shieldScore": 96,
+      "currentStageId": 3,
+      "telemetry": {
+        "heartRate": 98,
+        "bloodPressure": "106/68",
+        "spo2": 95,
+        "respiratoryRate": 22,
+        "meanArterialPressure": 80,
+        "cardiacRhythm": "Sinus Tachycardia · 4mm ST Elevation V1-V4",
+        "temperature": 36.7,
+        "lastUpdated": "10 sec ago"
+      },
+      "allergies": [
+        "Iodinated Radiographic Contrast (Pre-treated)"
+      ],
+      "codeStatus": "FULL CODE",
+      "fallRisk": "High",
+      "isolationType": "None",
+      "estimatedHandoffDuration": "8 min (Rapid Pathway)",
+      "assignedCoordinator": "Lt. Ethan Cross, RN, CEN",
+      "lastAuditNote": "CODE STEMI: Door-to-balloon clock at 24 minutes. Heparin bolus administered, Ticagrelor 180mg given. Cath team scrubbed in.",
+      "medications": [
+        {
+          "id": "med-51",
+          "name": "Heparin Bolus",
+          "dose": "5000 units",
+          "route": "IV Push",
+          "frequency": "Once",
+          "category": "anticoagulant",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "Dr. Tariq Al-Mansoor",
+          "notes": "Administered at 07:18 AM"
+        },
+        {
+          "id": "med-52",
+          "name": "Ticagrelor (Brilinta)",
+          "dose": "180 mg loading dose",
+          "route": "Oral (Crushed)",
+          "frequency": "Once",
+          "category": "cardiac",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "PharmD R. Gupta"
+        },
+        {
+          "id": "med-53",
+          "name": "Nitroglycerin Drip",
+          "dose": "10 mcg/min",
+          "route": "IV Continuous",
+          "frequency": "Titrate to chest pain",
+          "category": "infusion",
+          "reconciliationStatus": "verified",
+          "verifiedBy": "RN E. Cross"
+        }
+      ],
+      "stages": [
+        {
+          "id": 1,
+          "name": "Clinical Readiness & STEMI Activation",
+          "shortLabel": "Readiness",
+          "description": "Immediate 12-lead ECG, Code STEMI overhead broadcast, interventionalist page.",
+          "leadDiscipline": "Emergency Medicine",
+          "status": "completed",
+          "verifiedAt": "07:14 AM",
+          "verifiedBy": "Dr. Tariq Al-Mansoor, MD",
+          "checklists": [
+            {
+              "id": "sl-1",
+              "label": "12-lead ECG acquired and interpreted within 6 minutes of arrival",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "sl-2",
+              "label": "Code STEMI pager network triggered with Cath Lab Suite 2 response",
+              "discipline": "Physician",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Medication Reconciliation & Anti-Thrombotic Shield",
+          "shortLabel": "Pharm Shield",
+          "description": "Aspirin 324mg, P2Y12 loading dose, Heparin weight-based bolus.",
+          "leadDiscipline": "ED Pharmacy & Nursing",
+          "status": "completed",
+          "verifiedAt": "07:22 AM",
+          "verifiedBy": "PharmD R. Gupta",
+          "checklists": [
+            {
+              "id": "sl-3",
+              "label": "Dual anti-platelet loading dose confirmed swallowed or crushed",
+              "discipline": "Pharmacy",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "sl-4",
+              "label": "Intravenous access confirmed: 2x 18-gauge peripherals patent",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Receiving Handshake & Cath Lab Transfer",
+          "shortLabel": "SBAR Handshake",
+          "description": "Rapid bedside-to-table SBAR exchange with Interventional Fellow.",
+          "leadDiscipline": "Emergency & Cath Lab Nursing",
+          "status": "active",
+          "targetCompletionTime": "07:35 AM",
+          "checklists": [
+            {
+              "id": "sl-5",
+              "label": "Cath Lab Suite 2 table ready, fluoroscopy energized",
+              "discipline": "Nursing",
+              "completed": true,
+              "requiredForAdvance": true
+            },
+            {
+              "id": "sl-6",
+              "label": "Direct SBAR transfer communicated to lead Cath Lab RN",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true,
+              "notes": "RN rolling patient through double doors right now"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "Transport Safeguard & Escort Logistics",
+          "shortLabel": "Transport",
+          "description": "Direct expedited gurney roll with defibrillator/monitor accompanying.",
+          "leadDiscipline": "Emergency Transport",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "sl-7",
+              "label": "Defibrillator/pacer unit attached in monitor-defib mode with multifunction pads",
+              "discipline": "Nursing",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "Receiving Ingestion & Verification Seal",
+          "shortLabel": "Shield Locked",
+          "description": "Arterial access puncture time stamped, transition sealed.",
+          "leadDiscipline": "Interventional Cardiology",
+          "status": "pending",
+          "checklists": [
+            {
+              "id": "sl-8",
+              "label": "Transfer of clinical custody signed and door-to-needle/balloon clock registered",
+              "discipline": "Physician",
+              "completed": false,
+              "requiredForAdvance": true
+            }
+          ]
+        }
+      ],
+      "sbar": {
+        "situation": "41-year-old female with sudden acute substernal crushing chest pain radiating to jaw and left arm starting at 06:40 AM today, ECG confirms acute anterior STEMI with 4mm ST elevations.",
+        "background": "No significant past medical history. Smoker 1 pack/day. Family history of premature coronary artery disease in father at age 44.",
+        "assessment": "BP 106/68, HR 98 sinus tach, SpO2 95% on room air. Diaphoretic, pale, distress 8/10. Radial pulses intact bilaterally.",
+        "recommendation": "Immediate primary percutaneous coronary intervention (PCI). Right radial artery preferred approach. Emergency defibrillator attached throughout transition.",
+        "sendingNurse": "Lt. Ethan Cross, RN, CEN (Badge #5591)",
+        "receivingNurse": "Valerie Torres, BSN, RN, RCIS (Badge #1883)",
+        "attendingPhysician": "Tariq Al-Mansoor, MD, FACEP"
+      },
+      "transport": {
+        "mode": "Stretcher",
+        "escortRequired": true,
+        "escortTeam": "ED Primary RN + Resuscitation Tech",
+        "equipment": [
+          "Zoll Defibrillator/Pacer with Pads",
+          "O2 Tank (4L)",
+          "Emergency Cath Pack"
+        ],
+        "scheduledTime": "07:30 AM",
+        "etaMinutes": 2,
+        "transportStatus": "At Bedside"
+      }
+    }
+  ],
+  "auditEvents": [
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792855697890-831",
+      "timestamp": "2026-10-24 15:28:17"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792855697872-628",
+      "timestamp": "2026-10-24 15:28:17"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792855058571-888",
+      "timestamp": "2026-10-24 15:17:38"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792855058559-633",
+      "timestamp": "2026-10-24 15:17:38"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792854880971-207",
+      "timestamp": "2026-10-24 15:14:40"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792854880954-837",
+      "timestamp": "2026-10-24 15:14:40"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792854711819-859",
+      "timestamp": "2026-10-24 15:11:51"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792854711798-196",
+      "timestamp": "2026-10-24 15:11:51"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792854447808-742",
+      "timestamp": "2026-10-24 15:07:27"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792854447779-272",
+      "timestamp": "2026-10-24 15:07:27"
+    },
+    {
+      "id": "aud-101",
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-phys-1",
+      "actorName": "Dr. Katherine Miller, MD",
+      "actorRole": "physician",
+      "action": "CLINICAL_APPROVAL_SIGNED",
+      "entityType": "stage",
+      "details": "Verified Stage 01 extubation stability criteria and signed morning lab clearances.",
+      "timestamp": "2026-10-24 06:45:10"
+    },
+    {
+      "id": "aud-102",
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD",
+      "actorRole": "pharmacist",
+      "action": "MEDICATION_RECON_ATTESTED",
+      "entityType": "medication",
+      "details": "Milrinone cessation verified; oral beta-blocker step-down protocol reconciled and approved.",
+      "timestamp": "2026-10-24 07:15:22"
+    },
+    {
+      "id": "aud-103",
+      "transitionId": "tr-0944",
+      "patientName": "Donald Reyes",
+      "actorId": "usr-nurse-1",
+      "actorName": "Sarah Jensen, RN",
+      "actorRole": "nurse",
+      "action": "POLST_GOLD_SHEET_SEALED",
+      "entityType": "checklist",
+      "details": "Verified DNR/DNI status and placed executed advance directives in transport lock envelope.",
+      "timestamp": "2026-10-24 07:30:00"
+    },
+    {
+      "id": "aud-104",
+      "transitionId": "tr-0945",
+      "patientName": "Sofia Lindqvist",
+      "actorId": "usr-nurse-1",
+      "actorName": "Lt. Ethan Cross, RN",
+      "actorRole": "nurse",
+      "action": "CODE_STEMI_ACTIVATED",
+      "entityType": "transition",
+      "details": "Door-to-balloon pathway activated at 07:14. Cath lab suite 2 confirmed prepared.",
+      "timestamp": "2026-10-24 07:14:05"
+    }
+  ],
+  "notifications": [
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792855697890",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792855058572",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792854880971",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792854711820",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792854447808",
+      "read": false,
+      "createdAt": "Just now"
+    },
+    {
+      "id": "notif-1",
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Critical BP Elevation in Antepartum",
+      "message": "BP 158/104 sustained on continuous monitor. STAT Magnesium check and OR prep prioritized.",
+      "severity": "critical",
+      "category": "clinical",
+      "read": false,
+      "createdAt": "12 min ago"
+    },
+    {
+      "id": "notif-2",
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "title": "Stage 03 Handshake Pending",
+      "message": "Receiving bed 4W-12 sanitized and confirmed. Awaiting verbal SBAR nurse-to-nurse call.",
+      "severity": "info",
+      "category": "handoff",
+      "read": false,
+      "createdAt": "24 min ago"
+    },
+    {
+      "id": "notif-3",
+      "transitionId": "tr-0942",
+      "patientName": "Marcus Chen",
+      "title": "Transport Escort Dispatched",
+      "message": "Internal transit crew assigned for wheelchair transfer to Inpatient Neuro Rehabilitation.",
+      "severity": "info",
+      "category": "transport",
+      "read": true,
+      "createdAt": "40 min ago"
+    },
+    {
+      "id": "notif-4",
+      "transitionId": "tr-0945",
+      "patientName": "Sofia Lindqvist",
+      "title": "Code STEMI Door-to-Balloon Priority",
+      "message": "Direct expedited gurney roll to Cath Lab Suite 2 underway with monitor-defibrillator.",
+      "severity": "warning",
+      "category": "clinical",
+      "read": false,
+      "createdAt": "5 min ago"
+    }
+  ],
+  "systemSettings": {
+    "hospitalName": "Emerald Regional Medical Center",
+    "nodeId": "NODE-ALPHA-CORE",
+    "simulationMode": true,
+    "lastSeedTime": "2026-10-24T15:07:10.766Z"
+  }
+}
