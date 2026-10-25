@@ -10,12 +10,14 @@ import {
   FileCheck,
   Search,
   Info,
-  X
+  X,
+  Download
 } from 'lucide-react';
 import { CareTransition, MedicationItem } from '../types/clinical';
 import { api } from '../api/client';
 import { useAuth } from '../context/AuthContext';
 import { DrugPharmacologyProfile } from '../types/backend';
+import { generateMedReconciliationPDF } from '../utils/pdfGenerator';
 
 interface MedicationReconciliationViewProps {
   patient: CareTransition;
@@ -116,6 +118,16 @@ export const MedicationReconciliationView: React.FC<MedicationReconciliationView
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => generateMedReconciliationPDF(patient)}
+              className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#DCE7E3] bg-white hover:bg-[#FAF8F1] text-[#3f4945] hover:text-[#006150] flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+              title="Download Medication Reconciliation Matrix PDF"
+            >
+              <Download className="w-3.5 h-3.5 text-[#006971]" />
+              <span>Download Med Recon PDF</span>
+            </button>
+
             <button
               type="button"
               onClick={handleAttestAllMeds}

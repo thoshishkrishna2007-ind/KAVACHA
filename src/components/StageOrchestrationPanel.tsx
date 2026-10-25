@@ -14,9 +14,20 @@ import {
   ShieldAlert,
   UserCheck,
   Send,
-  MessageSquare
+  MessageSquare,
+  Download,
+  FileDown
 } from 'lucide-react';
 import { CareTransition, ChecklistItem, MedicationItem } from '../types/clinical';
+import { 
+  generateClinicalReviewPDF, 
+  generateMedReconciliationPDF, 
+  generateSbarPDF, 
+  generateTransportPDF, 
+  generateReceivingPDF,
+  generateTransitionSummaryPDF 
+} from '../utils/pdfGenerator';
+import { calculateReadiness } from '../utils/readiness';
 
 interface StageOrchestrationPanelProps {
   patient: CareTransition;
@@ -64,6 +75,41 @@ export const StageOrchestrationPanel: React.FC<StageOrchestrationPanelProps> = (
     setAuditNoteInput('');
   };
 
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
+
+  const handleDownloadStagePdf = () => {
+    setIsDownloadingPdf(true);
+    try {
+      switch (currentStage.id) {
+        case 1:
+          generateClinicalReviewPDF(patient);
+          break;
+        case 2:
+          generateMedReconciliationPDF(patient);
+          break;
+        case 3:
+          generateSbarPDF(patient);
+          break;
+        case 4:
+          generateTransportPDF(patient);
+          break;
+        case 5:
+          generateReceivingPDF(patient);
+          break;
+        default:
+          generateTransitionSummaryPDF(patient);
+          break;
+      }
+      setDownloadSuccess(true);
+      setTimeout(() => setDownloadSuccess(false), 2500);
+    } catch (err) {
+      console.error('Stage PDF download failed:', err);
+    } finally {
+      setIsDownloadingPdf(false);
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Stage Core Card */}
@@ -90,9 +136,31 @@ export const StageOrchestrationPanel: React.FC<StageOrchestrationPanelProps> = (
             </p>
           </div>
 
-          {/* Gate Progression Status */}
-          <div className="flex items-center gap-3">
-            <div className="text-right">
+          {/* Gate Progression Status & PDF Download */}
+          <div className="flex flex-wrap items-center gap-2.5">
+            {/* Stage PDF Button */}
+            <button
+              type="button"
+              onClick={handleDownloadStagePdf}
+              disabled={isDownloadingPdf}
+              className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs ${
+                downloadSuccess
+                  ? 'bg-[#e8f7f1] border-[#247A56] text-[#247A56]'
+                  : 'bg-white hover:bg-[#FAF8F1] border-[#DCE7E3] text-[#3f4945] hover:text-[#006150]'
+              }`}
+              title={`Download Stage 0${currentStage.id} Report PDF`}
+            >
+              {isDownloadingPdf ? (
+                <div className="w-3.5 h-3.5 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+              ) : downloadSuccess ? (
+                <Check className="w-3.5 h-3.5 text-[#247A56]" />
+              ) : (
+                <Download className="w-3.5 h-3.5 text-[#006971]" />
+              )}
+              <span>Stage 0{currentStage.id} PDF</span>
+            </button>
+
+            <div className="text-right pl-1 border-l border-[#DCE7E3]">
               <div className="text-xs text-[#6f7975] font-medium">Gate Criteria</div>
               <div className="text-sm font-bold font-mono text-[#006150]">
                 {completedRequiredChecks.length} / {requiredChecks.length} Required Met

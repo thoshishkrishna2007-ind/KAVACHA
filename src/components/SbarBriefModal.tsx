@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { useReactToPrint } from 'react-to-print';
 import { CareTransition } from '../types/clinical';
+import { generateSbarPDF } from '../utils/pdfGenerator';
 
 interface SbarBriefModalProps {
   isOpen: boolean;
@@ -147,6 +148,22 @@ Audit Seal: KAVACHA-CERT-${patient.id.toUpperCase()}-${Math.floor(Date.now() / 1
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const [isDownloadingDirectPdf, setIsDownloadingDirectPdf] = useState(false);
+  const [downloadDirectSuccess, setDownloadDirectSuccess] = useState(false);
+
+  const handleDirectDownloadPdf = () => {
+    setIsDownloadingDirectPdf(true);
+    try {
+      generateSbarPDF(patient);
+      setDownloadDirectSuccess(true);
+      setTimeout(() => setDownloadDirectSuccess(false), 2500);
+    } catch (err) {
+      console.error('SBAR PDF export failed:', err);
+    } finally {
+      setIsDownloadingDirectPdf(false);
+    }
+  };
+
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -177,7 +194,7 @@ Audit Seal: KAVACHA-CERT-${patient.id.toUpperCase()}-${Math.floor(Date.now() / 1
                   Clinical Handoff Document
                 </span>
                 <span className="text-[#bec9c4]">·</span>
-                <span className="text-xs text-[#6f7975] font-mono">react-to-print Powered</span>
+                <span className="text-xs text-[#6f7975] font-mono">Dual Engine: Print & Vector PDF</span>
               </div>
               <h3 className="text-base font-bold font-display text-[#111e1a] leading-tight">
                 Structured Transition of Care Brief (SBAR)
@@ -185,7 +202,7 @@ Audit Seal: KAVACHA-CERT-${patient.id.toUpperCase()}-${Math.floor(Date.now() / 1
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             {/* Copy Action */}
             <button
               type="button"
@@ -194,23 +211,45 @@ Audit Seal: KAVACHA-CERT-${patient.id.toUpperCase()}-${Math.floor(Date.now() / 1
               title="Copy plain text brief to clipboard"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-[#247A56]" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? 'Copied' : 'Copy Text'}</span>
+              <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
 
-            {/* Prominent Header Print / Export PDF Button */}
+            {/* Direct Vector PDF Download Button */}
+            <button
+              type="button"
+              onClick={handleDirectDownloadPdf}
+              disabled={isDownloadingDirectPdf}
+              className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs ${
+                downloadDirectSuccess
+                  ? 'bg-[#e8f7f1] border-[#247A56] text-[#247A56]'
+                  : 'bg-white hover:bg-[#FAF8F1] border-[#63DCE8] text-[#006150]'
+              }`}
+              title="Download standardized vector PDF document directly to disk"
+            >
+              {isDownloadingDirectPdf ? (
+                <div className="w-3.5 h-3.5 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+              ) : downloadDirectSuccess ? (
+                <Check className="w-3.5 h-3.5 text-[#247A56]" />
+              ) : (
+                <Download className="w-3.5 h-3.5 text-[#006150]" />
+              )}
+              <span>Download PDF</span>
+            </button>
+
+            {/* Prominent Header Print Button */}
             <button
               type="button"
               onClick={triggerPrint}
               disabled={isPrinting}
-              className="bg-gradient-to-b from-[#267A68] to-[#20594B] text-white px-4 py-2 text-xs font-bold rounded-lg flex items-center gap-2 shadow-[0_4px_16px_rgba(38,122,104,0.35)] hover:brightness-105 active:scale-[0.98] border-t border-white/20 transition-all cursor-pointer disabled:opacity-50"
-              title="Print formatted document or save as PDF via react-to-print"
+              className="bg-gradient-to-b from-[#267A68] to-[#20594B] text-white px-3.5 py-1.5 text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-[0_4px_16px_rgba(38,122,104,0.35)] hover:brightness-105 active:scale-[0.98] border-t border-white/20 transition-all cursor-pointer disabled:opacity-50"
+              title="Print formatted document via browser print dialog"
             >
               {isPrinting ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               ) : (
-                <Printer className="w-4 h-4 text-[#63DCE8]" />
+                <Printer className="w-3.5 h-3.5 text-[#63DCE8]" />
               )}
-              <span>Print / Export PDF</span>
+              <span>Print Brief</span>
             </button>
 
             <button
@@ -233,18 +272,25 @@ Audit Seal: KAVACHA-CERT-${patient.id.toUpperCase()}-${Math.floor(Date.now() / 1
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="text-[11px] font-mono text-[#6f7975] hidden md:inline">
-              Optimized for A4 & US Letter
-            </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleDirectDownloadPdf}
+              disabled={isDownloadingDirectPdf}
+              className="bg-white hover:bg-[#DDF8F8] border border-[#63DCE8] text-[#123B32] px-3 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-all shadow-2xs cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-[#006150]" />
+              <span>Download PDF File</span>
+            </button>
+
             <button
               type="button"
               onClick={triggerPrint}
               disabled={isPrinting}
-              className="bg-white hover:bg-[#DDF8F8] border border-[#63DCE8] text-[#123B32] px-3 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-all shadow-2xs cursor-pointer"
+              className="bg-[#267A68] hover:bg-[#20594B] text-white px-3 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-all shadow-2xs cursor-pointer"
             >
-              <Download className="w-3.5 h-3.5 text-[#006150]" />
-              <span>Save as PDF</span>
+              <Printer className="w-3.5 h-3.5 text-[#63DCE8]" />
+              <span>Open Print Dialog</span>
             </button>
           </div>
         </div>

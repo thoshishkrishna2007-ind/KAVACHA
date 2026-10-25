@@ -8,16 +8,36 @@ import {
   ShieldCheck, 
   AlertTriangle, 
   Lock,
-  User
+  User,
+  Download,
+  Check
 } from 'lucide-react';
 import { api } from '../api/client';
 import { AuditEvent } from '../types/backend';
+import { generateAuditReportPDF } from '../utils/pdfGenerator';
+import { useAuth } from '../context/AuthContext';
 
 export const AuditTrailView: React.FC = () => {
+  const { currentUser } = useAuth();
   const [events, setEvents] = useState<AuditEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRole, setSelectedRole] = useState<string>('all');
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
+
+  const handleDownloadPdf = () => {
+    setIsDownloading(true);
+    try {
+      generateAuditReportPDF(filteredEvents, { role: selectedRole, search: searchQuery }, currentUser);
+      setDownloadSuccess(true);
+      setTimeout(() => setDownloadSuccess(false), 2500);
+    } catch (err) {
+      console.error('Audit PDF generation failed:', err);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   const fetchAuditEvents = async () => {
     setLoading(true);
@@ -72,14 +92,37 @@ export const AuditTrailView: React.FC = () => {
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={fetchAuditEvents}
-            className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#DCE7E3] bg-white hover:bg-[#FAF8F1] text-[#3f4945] flex items-center gap-1.5 transition-colors cursor-pointer self-start sm:self-auto"
-          >
-            <RefreshCw className="w-3.5 h-3.5" />
-            <span>Refresh Ledger</span>
-          </button>
+          <div className="flex items-center gap-2 self-start sm:self-auto">
+            <button
+              type="button"
+              onClick={handleDownloadPdf}
+              disabled={isDownloading || filteredEvents.length === 0}
+              className={`px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs ${
+                downloadSuccess
+                  ? 'bg-[#e8f7f1] border-[#247A56] text-[#247A56]'
+                  : 'bg-white hover:bg-[#FAF8F1] border-[#DCE7E3] text-[#3f4945] hover:text-[#006150]'
+              } disabled:opacity-50`}
+              title="Download filtered audit trail as A4 vector PDF"
+            >
+              {isDownloading ? (
+                <div className="w-3.5 h-3.5 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+              ) : downloadSuccess ? (
+                <Check className="w-3.5 h-3.5 text-[#247A56]" />
+              ) : (
+                <Download className="w-3.5 h-3.5 text-[#006971]" />
+              )}
+              <span>Download Audit PDF</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={fetchAuditEvents}
+              className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-[#DCE7E3] bg-white hover:bg-[#FAF8F1] text-[#3f4945] flex items-center gap-1.5 transition-colors cursor-pointer"
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+              <span>Refresh Ledger</span>
+            </button>
+          </div>
         </div>
       </div>
 

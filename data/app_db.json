@@ -1256,6 +1256,30 @@
       "action": "SIMULATION_SCENARIO_B_BLOCKER",
       "entityType": "medication",
       "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
+      "id": "aud-1792856145272-998",
+      "timestamp": "2026-10-24 15:35:45"
+    },
+    {
+      "transitionId": "tr-0941",
+      "patientName": "Eleanor Vance",
+      "actorId": "usr-pharm-1",
+      "actorName": "R. Gupta, PharmD, BCPS",
+      "actorRole": "pharmacist",
+      "action": "SECURITY_GATE_DENIED",
+      "entityType": "security",
+      "details": "Unauthorized attempt to advance Stage 03. Denied: Stage 03 SBAR Handoff requires Primary Nurse or Receiving Nurse mutual signoff.",
+      "id": "aud-1792856145254-458",
+      "timestamp": "2026-10-24 15:35:45"
+    },
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "actorId": "usr-admin-1",
+      "actorName": "Simulation Engine",
+      "actorRole": "pharmacist",
+      "action": "SIMULATION_SCENARIO_B_BLOCKER",
+      "entityType": "medication",
+      "details": "Synthetic Scenario B: Injected high-alert medication safety blocker on Amara Okafor.",
       "id": "aud-1792855697890-831",
       "timestamp": "2026-10-24 15:28:17"
     },
@@ -1417,6 +1441,17 @@
     }
   ],
   "notifications": [
+    {
+      "transitionId": "tr-0943",
+      "patientName": "Amara Okafor",
+      "title": "Safety Gate Blocked: Medication Reconciliation",
+      "message": "Pharmacist verification required for Labetalol IV push prior to Stage 02 advance.",
+      "severity": "warning",
+      "category": "medication",
+      "id": "notif-1792856145272",
+      "read": false,
+      "createdAt": "Just now"
+    },
     {
       "transitionId": "tr-0943",
       "patientName": "Amara Okafor",

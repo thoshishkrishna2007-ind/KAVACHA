@@ -12,13 +12,15 @@ import {
   Pill, 
   UserCheck, 
   RotateCcw,
-  Layers
+  Layers,
+  BookOpen,
+  FileDown
 } from 'lucide-react';
 import { CareTransition } from '../types/clinical';
 import { useAuth } from '../context/AuthContext';
 import { UserRole } from '../types/backend';
 
-export type ActiveAppView = 'orchestration' | 'roster' | 'med_recon' | 'simulation' | 'analytics' | 'audit';
+export type ActiveAppView = 'orchestration' | 'med_recon' | 'roster' | 'reports' | 'simulation' | 'analytics' | 'audit' | 'guide';
 
 interface HeaderProps {
   activeView: ActiveAppView;
@@ -131,6 +133,19 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               type="button"
+              onClick={() => setActiveView('reports')}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeView === 'reports'
+                  ? 'bg-white text-[#006150] shadow-xs'
+                  : 'text-[#3f4945] hover:text-[#111e1a]'
+              }`}
+            >
+              <FileDown className="w-3.5 h-3.5 text-[#006150]" />
+              <span>Reports & PDFs</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => setActiveView('simulation')}
               className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                 activeView === 'simulation'
@@ -166,6 +181,19 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <FileText className="w-3.5 h-3.5 text-[#6f7975]" />
               <span>Audit Ledger</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveView('guide')}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeView === 'guide'
+                  ? 'bg-gradient-to-r from-[#267A68] to-[#123B32] text-white shadow-xs'
+                  : 'text-[#006150] bg-white/70 hover:bg-white border border-[#267A68]/30'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>All Features & Guide</span>
             </button>
           </div>
 

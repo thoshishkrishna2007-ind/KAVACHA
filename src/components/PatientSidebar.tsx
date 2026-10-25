@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Shield, 
   Activity, 
@@ -13,9 +13,13 @@ import {
   Lock,
   PhoneCall,
   Bed,
-  CheckCircle2
+  CheckCircle2,
+  Download,
+  Check
 } from 'lucide-react';
 import { CareTransition } from '../types/clinical';
+import { generatePatientOverviewPDF, generateTransitionSummaryPDF } from '../utils/pdfGenerator';
+import { calculateReadiness } from '../utils/readiness';
 
 interface PatientSidebarProps {
   patient: CareTransition;
@@ -32,6 +36,37 @@ export const PatientSidebar: React.FC<PatientSidebarProps> = ({
   onSimulateTelemetry,
   isSimulatingTelemetry = false,
 }) => {
+  const [downloadingSummary, setDownloadingSummary] = useState(false);
+  const [downloadingOverview, setDownloadingOverview] = useState(false);
+  const [successAction, setSuccessAction] = useState<string | null>(null);
+
+  const handleDownloadOverview = () => {
+    setDownloadingOverview(true);
+    try {
+      const readiness = calculateReadiness(patient);
+      generatePatientOverviewPDF(patient, readiness);
+      setSuccessAction('overview');
+      setTimeout(() => setSuccessAction(null), 2500);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setDownloadingOverview(false);
+    }
+  };
+
+  const handleDownloadSummary = () => {
+    setDownloadingSummary(true);
+    try {
+      const readiness = calculateReadiness(patient);
+      generateTransitionSummaryPDF(patient, readiness);
+      setSuccessAction('summary');
+      setTimeout(() => setSuccessAction(null), 2500);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setDownloadingSummary(false);
+    }
+  };
   // Render status chip per design spec
   const renderAcuityTag = () => {
     switch (patient.acuity) {
@@ -323,6 +358,43 @@ export const PatientSidebar: React.FC<PatientSidebarProps> = ({
           <FileText className="w-3.5 h-3.5 text-[#006150]" />
           <span>Full SBAR Handoff Brief</span>
         </button>
+
+        {/* PDF Download Actions */}
+        <div className="grid grid-cols-2 gap-1.5 pt-1">
+          <button
+            type="button"
+            onClick={handleDownloadOverview}
+            disabled={downloadingOverview}
+            className="w-full bg-white hover:bg-[#FAF8F1] border border-[#DCE7E3] text-[#3f4945] hover:text-[#006150] p-1.5 text-[11px] font-semibold rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer shadow-2xs"
+            title="Download Patient Overview & Vitals PDF"
+          >
+            {downloadingOverview ? (
+              <div className="w-3 h-3 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+            ) : successAction === 'overview' ? (
+              <Check className="w-3 h-3 text-[#247A56]" />
+            ) : (
+              <Download className="w-3 h-3 text-[#006971]" />
+            )}
+            <span>Overview PDF</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleDownloadSummary}
+            disabled={downloadingSummary}
+            className="w-full bg-[#e8f7f1] hover:bg-[#d8f0e7] border border-[#247A56]/30 text-[#006150] p-1.5 text-[11px] font-semibold rounded-lg flex items-center justify-center gap-1 transition-all cursor-pointer shadow-2xs"
+            title="Download Consolidated 5-Stage Transition Report"
+          >
+            {downloadingSummary ? (
+              <div className="w-3 h-3 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+            ) : successAction === 'summary' ? (
+              <Check className="w-3 h-3 text-[#247A56]" />
+            ) : (
+              <Download className="w-3 h-3 text-[#006150]" />
+            )}
+            <span>Summary PDF</span>
+          </button>
+        </div>
       </div>
     </aside>
   );

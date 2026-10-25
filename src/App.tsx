@@ -17,6 +17,8 @@ import { AuditTrailView } from './components/AuditTrailView';
 import { NotificationCenter } from './components/NotificationCenter';
 import { MedicationReconciliationView } from './components/MedicationReconciliationView';
 import { CinematicIntro } from './components/CinematicIntro';
+import { FeaturesGuideView } from './components/FeaturesGuideView';
+import { ReportsCenterView } from './components/ReportsCenterView';
 import { calculateReadiness } from './utils/readiness';
 import { ReadinessBreakdown } from './types/backend';
 import { INITIAL_PATIENTS } from './data/mockPatients';
@@ -348,7 +350,20 @@ function AppContent() {
           />
         )}
 
-        {/* VIEW 4: Clinical Safety Simulation Center */}
+        {/* VIEW 4: Central Reports & PDF Downloads Hub */}
+        {activeView === 'reports' && (
+          <ReportsCenterView
+            patients={patients}
+            selectedPatient={selectedPatient}
+            onSelectPatient={handleSelectPatient}
+            onOpenSbar={(p) => {
+              setPatientForSbar(p);
+              setIsSbarModalOpen(true);
+            }}
+          />
+        )}
+
+        {/* VIEW 5: Clinical Safety Simulation Center */}
         {activeView === 'simulation' && (
           <SimulationCenter
             onScenarioExecuted={(scenarioName) => {
@@ -368,6 +383,18 @@ function AppContent() {
           <AuditTrailView />
         )}
 
+        {/* VIEW 7: Comprehensive All Features & System Guide */}
+        {activeView === 'guide' && (
+          <FeaturesGuideView
+            onNavigateToView={(view) => setActiveView(view)}
+            onOpenSbar={() => {
+              setPatientForSbar(selectedPatient);
+              setIsSbarModalOpen(true);
+            }}
+            onOpenNewTransition={() => setIsNewTransitionModalOpen(true)}
+          />
+        )}
+
       </main>
 
       {/* Footer Branding */}
@@ -376,9 +403,19 @@ function AppContent() {
           <span className="font-bold text-[#111e1a] tracking-wider font-display">
             KAVACHA · Intelligent Clinical Care Transition & Patient Safety Platform
           </span>
-          <span className="font-mono text-[11px] text-[#006150]">
-            System Node Alpha · Synthetic Demonstration Protocol
-          </span>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setActiveView('guide')}
+              className="font-semibold text-[#006150] hover:underline cursor-pointer flex items-center gap-1"
+            >
+              <span>Platform Capabilities & Architecture Guide</span>
+            </button>
+            <span aria-hidden="true" className="text-[#bec9c4]">·</span>
+            <span className="font-mono text-[11px] text-[#006150]">
+              System Node Alpha · Synthetic Demonstration Protocol
+            </span>
+          </div>
         </div>
       </footer>
 

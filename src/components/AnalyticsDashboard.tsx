@@ -9,9 +9,12 @@ import {
   FileSpreadsheet, 
   Layers, 
   Building2, 
-  RefreshCw 
+  RefreshCw,
+  Check
 } from 'lucide-react';
 import { api } from '../api/client';
+import { generateAnalyticsPDF } from '../utils/pdfGenerator';
+import { useAuth } from '../context/AuthContext';
 
 export const AnalyticsDashboard: React.FC = () => {
   const [data, setData] = useState<{
@@ -48,6 +51,24 @@ export const AnalyticsDashboard: React.FC = () => {
   useEffect(() => {
     fetchAnalytics();
   }, []);
+
+  const { currentUser } = useAuth();
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
+
+  const handleDownloadPdf = () => {
+    if (!data) return;
+    setIsDownloadingPdf(true);
+    try {
+      generateAnalyticsPDF(data, currentUser);
+      setDownloadSuccess(true);
+      setTimeout(() => setDownloadSuccess(false), 2500);
+    } catch (err) {
+      console.error('Analytics PDF download failed:', err);
+    } finally {
+      setIsDownloadingPdf(false);
+    }
+  };
 
   const handleExportCsv = () => {
     window.location.href = '/api/analytics/export-csv';
@@ -89,6 +110,27 @@ export const AnalyticsDashboard: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleDownloadPdf}
+              disabled={isDownloadingPdf}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs ${
+                downloadSuccess
+                  ? 'bg-[#e8f7f1] border-[#247A56] text-[#247A56]'
+                  : 'bg-white hover:bg-[#FAF8F1] border-[#DCE7E3] text-[#3f4945] hover:text-[#006150]'
+              }`}
+              title="Download Operational Analytics Report as A4 PDF"
+            >
+              {isDownloadingPdf ? (
+                <div className="w-3.5 h-3.5 border-2 border-[#006150] border-t-transparent rounded-full animate-spin" />
+              ) : downloadSuccess ? (
+                <Check className="w-3.5 h-3.5 text-[#247A56]" />
+              ) : (
+                <Download className="w-3.5 h-3.5 text-[#006971]" />
+              )}
+              <span>Download Analytics PDF</span>
+            </button>
+
             <button
               type="button"
               onClick={fetchAnalytics}
